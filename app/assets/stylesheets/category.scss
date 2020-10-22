@@ -1,0 +1,85 @@
+// Place all the styles related to the category controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.product .price {
+  vertical-align: text-bottom;
+  font-size: 20px;
+}
+
+.product .price.strike {
+  color: #aaaaaa;
+}
+
+.product .new-price {
+  color: red;
+}
+
+.product .buy-now {
+  float: right;
+}
+
+.product button.buy-now:disabled {
+  opacity: 0.3;
+}
+
+.product .description {
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+.product h1 a {
+  text-decoration: none;
+  color: #000;
+}
+
+.product h1 a:hover {
+  color: #555;
+}
+
+h2.top-margin {
+  margin-top: 70px;
+}
+
+.rating-starts {
+  text-align: center;
+}
+
+.rating-starts .star-rating-control {
+  display: inline-block;
+}
+
+form input.rating-submit {
+  display: block;
+  margin: 0 auto;
+}
+
+textarea.note-textarea {
+  margin-top: 10px;
+  width: 100%;
+  resize:vertical;
+}
+
+.rating-container {
+  background: #e5e5e5;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.rating-container span.rating-note {
+  display: block;
+}
+
+#compare-box hr {
+  display: none;
+}
+
+button.compare-button {
+  margin: 0 auto;
+  width: 100px;
+  display: block;
+}
+
+.rating-container select {
+  width: 250px;
+}

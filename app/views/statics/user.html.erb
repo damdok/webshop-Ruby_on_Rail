@@ -1,0 +1,43 @@
+<% if current_user %>
+    <div class="page-header">
+      <h1>Credits</h1>
+    </div>
+
+    Currently you have <%= current_user.balance %> credits. To buy more, you can use PayPal (100 credit costs $1):
+
+    <%= form_tag("/user/balance", method: "post", controller: "statics", action: "balance", class: 'balance-form') do %>
+        <%= number_field('user', 'credit', in: 100.0..1000000.0, step: 1, placeholder: 'credits', class: 'credit-field', :required => true) %>
+        <%= submit_tag "PayPal", :type => :image, :src => "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif", class: 'paypal-button' %>
+    <% end %>
+    <span class="credit-cost">It will cost $<span id="credit-span">0</span>.</span>
+
+    <% if current_user.regular %>
+      <div class="regular">
+        Thanks for your regular purchases! You have a 5% discount to everything!
+      </div>
+    <% end %>
+
+    <div class="page-header">
+      <h1>User profile</h1>
+    </div>
+
+    <%= semantic_form_for current_user, :url => '/user', :html => { :class => 'user-edit', :novalidate => false } do |f| %>
+        <%= f.semantic_errors :state %>
+        <%= f.inputs do %>
+            <%= f.input :name, :required => true %>
+            <%= f.input :email, :required => true, :as => :email %>
+            <%= f.input :phone %>
+            <%= f.input :city %>
+            <%= f.input :street %>
+            <%= f.input :address %>
+        <% end %>
+        <%= f.actions do %>
+            <%= f.action :submit, :label => "Update profile" %>
+        <% end %>
+    <% end %>
+
+    <h3><%= link_to 'Check your bought products!', '/user/products' %></h3>
+
+<% else %>
+    <%= render 'nopermission' %>
+<% end %>

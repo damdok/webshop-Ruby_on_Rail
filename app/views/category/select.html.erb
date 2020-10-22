@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1>Select products to compare</h1>
+</div>
+
+<% @products.each do |category, products| %>
+    <div data-category='<%= category %>' class="rating-container">
+      <h3><%= category %></h3>
+      <%= form_tag("/product/compare/", method: "get") do %>
+          <label class="pull-left">
+            <%= select_tag('first', options_for_select(products)) %>
+          </label>
+          <label class="pull-right">
+            <%= select_tag('second', options_for_select(products)) %>
+          </label>
+      <% end %>
+      <button class="compare-button" onclick="compare('<%= category %>')">Compare</button>
+    </div>
+<% end %>

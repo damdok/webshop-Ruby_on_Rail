@@ -1,0 +1,9 @@
+<div class="page-header">
+  <h1>Welcome at Ruby Webshop!</h1>
+</div>
+
+<h2>The most popular products in each category:</h2>
+
+<% @popularproducts.each do |product| %>
+  <%= render "category/productbox", :product => product %>
+<% end %>

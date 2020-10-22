@@ -1,0 +1,14 @@
+<div class="jumbotron product">
+  <%= link_to image_tag(product.image_url), product.image_url, target: '_blank' %>
+  <h1><%= link_to product.name, '/product/' + product.id.to_s %></h1>
+  <span class="price <%= product.discount > 0 ? 'strike' : '' %>">$ <%= product.usdprice %></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="price new-price"><%= product.discount > 0 ? '$' + product.newprice.to_s : '' %></span>
+  <div class="description"><%= product.description %></div>
+  <% if current_user && product.stock > 0 %>
+      <button data-product-id="<%= product.id %>" type="button" class="buy-now" onclick="addToCart(<%= product.id %>);">Add to cart</button>
+  <% elsif current_user %>
+      <span class="buy-now">Out of stock</span>
+  <% else %>
+      <span class="buy-now">Please log in to buy this!</span>
+  <% end %>
+  <span class="bold">In stock:</span> <%= product.stock %> pieces
+</div>

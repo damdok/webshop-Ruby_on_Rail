@@ -1,0 +1,22 @@
+<% if @first.present? && @second.present? %>
+    <div class="page-header">
+      <h1>Compare</h1>
+    </div>
+
+    <div class="row" id="compare-box">
+      <div class="col-md-6">
+        <%= render "productbox", :product => @first %>
+
+        <%= render "reviews", :ratings => @firstratings %>
+      </div>
+      <hr />
+      <div class="col-md-6">
+        <%= render "productbox", :product => @second %>
+
+        <%= render "reviews", :ratings => @secondratings %>
+      </div>
+    </div>
+
+<% else %>
+    <%= render 'doesntexists', :model => 'product' %>
+<% end %>

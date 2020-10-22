@@ -1,0 +1,284 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ */
+
+/* Custom bootstrap variables must be set or import before bootstrap itself. */
+@import "jquery-ui";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/theme';
+@import "active_admin.scss";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "jquery-rating";
+
+$nprogress-color: #f1f1f1;
+@import "nprogress";
+@import "nprogress-bootstrap";
+#nprogress .spinner {
+  top: 19px;
+}
+
+@import "simple-sidebar";
+
+@import "statics";
+
+@import "category";
+
+@import "media-queries";
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.footer .container {
+  padding: 0 15px;
+  width: 100%!important;
+}
+
+.footer .container .text-muted {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.footer .container .text-muted a {
+  color: #9d9d9d;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Navbar styles
+-------------------------------------------------- */
+.navbar.navbar-inverse .navbar-header a.navbar-brand {
+  text-decoration: none;
+  margin-top: 2px;
+}
+
+.navbar .navbar-nav a.navbar-text {
+  text-decoration: none;
+  color: #9d9d9d;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  padding: 2px 0 0 0;
+  margin: 15px;
+}
+
+.navbar .navbar-nav img {
+  height: 50px;
+  padding-top: 5px;
+}
+
+.navbar .navbar-nav li.logout {
+  padding: 2px 15px 0 10px;
+}
+
+.navbar .navbar-nav li.login {
+  padding-top: 4px;
+}
+
+.navbar .navbar-nav li.logout a {
+  text-decoration: none;
+  padding: 15px 0;
+}
+
+nav.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+#navbar ul.nav {
+  margin: 0 30px 0 0;
+}
+
+nav button#menu-toggle {
+  margin: 9px 10px 9px 30px;
+  float: left;
+}
+
+.nav > li {
+  float: left;
+}
+
+.navbar .navbar-header {
+  float: left;
+}
+
+/* Formtastic styles
+-------------------------------------------------- */
+.formtastic label {
+  color: #5E6469;
+  font-size: 21px;
+}
+
+/* Pagination styles
+-------------------------------------------------- */
+.paginate {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default;
+}
+.paginate a, .paginate span {
+  padding: 0.2em 0.3em;
+}
+.paginate .disabled {
+  color: #aaaaaa;
+}
+.paginate .current {
+  font-style: normal;
+  font-weight: bold;
+  background-color: #bebebe;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+}
+.paginate a {
+  text-decoration: none;
+  color: black;
+}
+.paginate a:hover, .paginate a:focus {
+  text-decoration: underline;
+}
+
+/* Select styles
+-------------------------------------------------- */
+.rating-container select {
+  padding:3px!important;
+  margin: 0!important;
+  -webkit-border-radius:4px!important;
+  -moz-border-radius:4px!important;
+  border-radius:4px!important;
+  -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset!important;
+  -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset!important;
+  box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset!important;
+  background: #f8f8f8!important;
+  color:#888!important;
+  border:none!important;
+  outline:none!important;
+  display: inline-block!important;
+  -webkit-appearance:none!important;
+  -moz-appearance:none!important;
+  appearance:none!important;
+  cursor:pointer!important;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .rating-container select {padding-right:18px!important}
+}
+
+.rating-container label {position:relative}
+.rating-container label:after {
+  content:'<>'!important;
+  font:11px "Consolas", monospace!important;
+  color:#aaa!important;
+  -webkit-transform:rotate(90deg)!important;
+  -moz-transform:rotate(90deg)!important;
+  -ms-transform:rotate(90deg)!important;
+  transform:rotate(90deg)!important;
+  right:8px; top:2px!important;
+  padding:0 0 2px!important;
+  border-bottom:1px solid #ddd!important;
+  position:absolute!important;
+  pointer-events:none!important;
+}
+
+.rating-container label:before {
+  content:''!important;
+  right:6px; top:0px!important;
+  width:20px; height:20px!important;
+  background:#f8f8f8!important;
+  position:absolute!important;
+  pointer-events:none!important;
+  display:block!important;
+}
+
+/* General styles
+-------------------------------------------------- */
+.page-header i {
+  color: #999 ;
+}
+
+.page-header a {
+  text-decoration: none;
+  color: #999;
+}
+
+.page-header a:hover {
+  color: #5E6469;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.bold {
+  font-weight:bold;
+}
+
+#wrapper {
+  padding-top: 56px;
+}
+
+ul#noty_topRight_layout_container {
+  top: 65px!important;
+  right: 35px!important;
+}
+
+a.disabled {
+  pointer-events: none!important;
+  color: gray!important;
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+#dialog-confirm {
+  display: none;
+}
+
+#dialog-confirm p {
+  margin: 10px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.product img {
+  height: 94px;
+  border: 3px solid #BBB;
+  float: right;
+}

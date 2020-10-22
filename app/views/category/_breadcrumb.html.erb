@@ -1,0 +1,5 @@
+<% if category.parent.present? %>
+    <a href='/category/<%= category.parent.url %>'><%= category.parent.name %></a>&nbsp;&nbsp;<%= icon('long-arrow-right') %>&nbsp;&nbsp;<%= category.name %>
+<% else %>
+    <%= category.name %>
+<% end %>

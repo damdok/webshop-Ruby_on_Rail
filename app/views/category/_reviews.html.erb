@@ -1,0 +1,13 @@
+<h2 class="top-margin">Reviews for this product:</h2>
+
+<% ratings.each do |rating| %>
+    <div class="rating-container">
+      <h3 class="pull-left"><%= rating.user.name %> rated <%= rating.rating.to_s %></h3>
+      <span class="pull-right"><%= rating.created_at %></span>
+      <span class="rating-note clearfix"><%= rating.note %></span>
+    </div>
+<% end %>
+
+<% if !ratings.present? %>
+    Nobody reviewed this product yet.
+<% end %>

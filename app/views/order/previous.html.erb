@@ -1,0 +1,38 @@
+<% if current_user %>
+    <div class="page-header">
+      <h1>Previous orders</h1>
+    </div>
+
+    <% if @invoices.present? %>
+      <table class="table table-striped table-hover table-responsive" id="cart-table">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Total</th>
+          <th>Delivered</th>
+          <th>Courier</th>
+          <th>PDF</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @invoices.each do |invoice| %>
+          <tr>
+            <td><%= invoice.created_at %></td>
+            <td>$ <%= invoice.total %></td>
+            <td><%= check_box('delivered  ', invoice.id, {checked: invoice.delivered, disabled: true}) %></td>
+            <td><%= invoice.courier.present? ? invoice.courier.name : 'Not dispatched' %></td>
+            <td><%= link_to 'Open', invoice.pdf, target: '_blank' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <%= will_paginate @invoices, class: 'paginate' %>
+    <% else %>
+      You didn't bought anything yet.
+    <% end %>
+
+<% else %>
+    <%= render 'statics/nopermission' %>
+<% end %>

@@ -1,0 +1,42 @@
+<% if @product %>
+    <div class="page-header">
+      <h1><%= @product.name %></h1>
+    </div>
+
+    <div class="breadcrumb"><%= render "breadcrumb", :category => @product.category %></div>
+
+    <%= render "productbox", :product => @product %>
+
+    <%= render "reviews", :ratings => @ratings %>
+
+    <h2 class="top-margin">Write a review:</h2>
+    <% if @product.notreviewed(current_user) %>
+      <%= form_tag('/product/rating', method: 'post', id: 'rating-form') do %>
+        <div class="rating-starts">
+          <input name="rating" type="radio" class="star" value="1"/>
+          <input name="rating" type="radio" class="star" value="2"/>
+          <input name="rating" type="radio" class="star" value="3"/>
+          <input name="rating" type="radio" class="star" value="4"/>
+          <input name="rating" type="radio" class="star" value="5"/>
+          <input type="hidden" name="id" value="<%= @product.id %>"/>
+          <br />
+        </div>
+        <textarea name="note" class='note-textarea' rows="5"></textarea>
+        <%= submit_tag("Write review", class: 'rating-submit', id: 'rating-submit') %>
+      <% end %>
+    <% else %>
+      You already wrote a review.
+    <% end %>
+
+
+
+    <% if @othersbought.present? %>
+      <h2 class="top-margin">Other users also bought this with these products:</h2>
+    <% end %>
+    <% @othersbought.each do |product| %>
+        <%= render "productbox", :product => product %>
+    <% end %>
+
+<% else %>
+    <%= render 'doesntexists', :model => 'product' %>
+<% end %>

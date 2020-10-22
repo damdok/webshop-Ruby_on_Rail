@@ -1,0 +1,15 @@
+<% if @cat %>
+  <div class="page-header">
+    <h1><%= render "breadcrumb", :category => @cat %></h1>
+  </div>
+
+
+  <% @products.each do |product| %>
+      <%= render "productbox", :product => product %>
+  <% end %>
+
+  <%= will_paginate @products, class: 'paginate' %>
+
+<% else %>
+  <%= render 'doesntexists', :model => 'category' %>
+<% end %>

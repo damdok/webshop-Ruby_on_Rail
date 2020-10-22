@@ -1,0 +1,12 @@
+<div class="page-header">
+  <h1>Welcome at Ruby Webshop!</h1>
+</div>
+
+<h2>The newest products in each category:</h2>
+
+<% @newproducts.each do |product| %>
+  <%= render "category/productbox", :product => product %>
+<% end %>
+
+<h3 class="pull-left"><%= link_to 'Check out the most popular products!', '/popular' %></h3>
+<h3 class="pull-right"><%= link_to 'Compare similar products!', '/product/compare/select' %></h3>

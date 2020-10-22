@@ -1,0 +1,70 @@
+// Place all the styles related to the Statics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+form.user-edit li label {
+  width: 25%;
+}
+
+form.user-edit li input:not([type="submit"]) {
+  width: calc(75% - 22px);
+}
+
+.balance-form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.balance-form .credit-field {
+  width: 200px;
+}
+
+.balance-form .paypal-button {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.credit-cost {
+  display: table;
+  margin: 10px auto 0;
+}
+
+thead th {
+  background: #ccc;
+}
+
+.cart-summary {
+  font-size: 16px;
+}
+
+.cart-summary span {
+  font-weight: bold;
+}
+
+a.profile-link {
+  font-size: 16px;
+  color: red;
+}
+
+#buy-button:disabled {
+  opacity: 0.3;
+}
+
+.regular {
+  margin-top: 30px;
+  font-size: 17px;
+}
+
+@media (max-width: 480px) {
+  form.user-edit li label {
+    width: 35%;
+  }
+
+  form.user-edit li input:not([type="submit"]) {
+    width: calc(65% - 22px);
+  }
+
+  .balance-form .credit-field {
+    width: 100%;
+  }
+}
